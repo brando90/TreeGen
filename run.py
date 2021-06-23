@@ -188,7 +188,8 @@ def g_eval(sess, model, batch_data):
             loss_mask[i][t] = 1
     
     state = get_state(batch_data)
-    acc, pre, pre_rules = sess.run([model.accuracy, model.correct_prediction, model.max_res], feed_dict={model.input_NL: batch[0],
+    acc, pre, pre_rules = sess.run([model.accuracy, model.correct_prediction, model.max_res],
+                                   feed_dict={model.input_NL: batch[0],
                                                 model.input_NLChar:batch[1],
                                                 model.inputparentlist: batch[5],
                                                 model.inputrulelist:batch[6],
@@ -222,7 +223,8 @@ def g_eval(sess, model, batch_data):
 
 def run():
     Code_gen_model = code_gen_model(classnum, embedding_size, conv_layernum, conv_layersize, rnn_layernum,
-                                    batch_size, NL_vocabu_size, Tree_vocabu_size, NL_len, Tree_len, parent_len, learning_rate, keep_prob, len(char_vocabulary), rules_len)
+                                    batch_size, NL_vocabu_size, Tree_vocabu_size, NL_len, Tree_len, parent_len,
+                                    learning_rate, keep_prob, len(char_vocabulary), rules_len)
     valid_batch, _ = batch_data(batch_size, "dev") # read data 
     best_accuracy = 0
     best_card = 0
